@@ -1,61 +1,60 @@
-# 第二章--初识Recaf
+# Chapter 2 - Getting to Know Recaf
 
-## 1.Recaf是什么？
+## 1. What is Recaf?
 
-Recaf是一个开源Java字节码编辑器，Recaf大大降低了编辑Java字节码的难度。 诸如更新帧栈之类的困难任务都是自动完成的。 
+Recaf is an open source Java bytecode editor, Recaf greatly reduces the difficulty of editing Java bytecode. Difficult tasks like updating the frame stack are done automatically.
 
 <br/>
-## 2.下载Recaf
+## 2. Download Recaf
 
 https://github.com/Col-E/Recaf
 
 <br/>
-## 3.配置Recaf：
+## 3. Configure Recaf:
 
 ![image-20210424170434518](image/Recaf Display Config.png)
 
-Class Mode改为Table，这样打开每个Class默认采用表格模式读取（只有表格模式可以进行Java字节码编辑)
+Change the Class Mode to Table, so that each Class will be read in table mode by default (only table mode can be used for Java bytecode editing)
 
 <br/>
 ![image-20210424170722970](image/Recaf Keybinds Config.png)
 
-修改保存修改的快捷键，随便你改啥，因为Ctrl+S有的时候会被其他应用程序占用TAT
+Modify the shortcut key to save the modification, you can change whatever you want, because sometimes Ctrl+S will be occupied by other applications TAT
 
 <br/>
 ![image-20210424171245403](image/Recaf Assemble cfg.png)
 
-关掉Use existing data,这个功能有可能被crasher干扰，其他的默认
+Turn off Use existing data, this function may be interfered by crasher, other default
 
 <br/>
-![image-20210424171406825](image/Recaf临时切换模式.png)
+![image-20210424171406825](image/Recaf temporary switching mode.png)
 
-临时切换反编译/表格/16进制码模式的方法如图
+The method of temporarily switching decompilation/table/hexadecimal code mode is shown in the figure
 
 <br/>
 
-## 4.使用Recaf:
+## 4. Use Recaf:
 
-（模式：Table表格模式）：
+(Mode: Table table mode):
 
 ![image-20210430215754254](image/Recaf expVariable Table Class.png)
 
-Class选项卡显示的是选中的类的属性
+The Class tab displays the properties of the selected class
 
-Fields字段（即成员变量）选项卡为空，因为在这个类中没有定义成员变量
+The Fields field (that is, member variables) tab is empty because no member variables are defined in this class
 
-Methods方法（即成员函数)选项卡如下
+The Methods method (ie member function) tab is as follows
 
 ![](image/ExampleVariableTable.png)
 
-将鼠标指针放到Access列的图标上可以获取对应的方法的访问许可（public、static等)
+Put the mouse pointer on the icon in the Access column to obtain the access permission of the corresponding method (public, static, etc.)
 
-Return即方法返回值类型
+Return is the method return value type
 
-Name列即方法的名称
+The Name column is the name of the method
 
-Arguments是方法需要的参数
+Arguments are the parameters required by the method
 
-右键方法即可进行Remove(删除方法)、search reference(找出引用此方法的)、Rename(重命名方法)、Edit with assembler("编辑汇编代码")
+Right-click the method to perform Remove (delete method), search reference (find out the reference to this method), Rename (rename method), Edit with assembler ("edit assembly code")
 
 ![image-20210430222052872](image/ExampleVariableASM.png)
-
