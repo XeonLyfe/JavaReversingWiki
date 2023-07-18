@@ -1,34 +1,33 @@
-# 第一章--JVM结构
+# Chapter 1 - JVM structure
 
-> 简单介绍一下，这部分知识暂时不用钻研
+> A brief introduction, this part of knowledge does not need to be studied for the time being
 
-先说一个奇葩的事，其实JVM自己一点都不会JAVA语言，它只会自己的指令码即Java字节码(Java bytecode)。
+Let me talk about a strange thing first. In fact, the JVM itself does not know the JAVA language at all. It only knows its own instruction code, that is, Java bytecode (Java bytecode).
 
-所以Java程序的流程是：
+So the flow of the Java program is:
 
-Java源代码被javac编译以后变成了Java字节码，然后放入JVM才能被JVM识别并运行![Java运行流程](第一章img/Java运行流程.png)
-
-<br/>
-## 线程(Threads)：
-
-Java的框架是并行的，这意味着不同的计算可以用多个线程在同一时间运行。
-
-当一个新的JVM进程启动时，创建的第一个新线程即主线程(main thread)。
-
-主线程创建后，在static main(String[] args)中的代码就开始在主线程中运行。
+After the Java source code is compiled by javac, it becomes a Java bytecode, and then put into the JVM to be recognized and run by the JVM! [Java running process] (Chapter 1 img/Java running process.png)
 
 <br/>
-## 帧栈(Stack/Stackframe)与帧(Frames)：
+##Threads:
 
-每个Java线程都拥有一个帧栈来进行方法调用和返回，帧栈相当于帧的容器，用来控制方法调用和返回。JVM会为方法创建帧，当方法`return`时，对应的方法帧就会被销毁。
+Java's framework is parallel, which means that different calculations can be run at the same time using multiple threads.
 
-![JVM结构](第一章img/JVM结构.png)
+When a new JVM process starts, the first new thread created is the main thread.
 
-<br/>
-## 帧(Frames)的结构（之后细讲）：
-
-帧又称方法帧，用来处理每个方法里的内容。帧包含两个主要部分：局部变量表、操作栈
+After the main thread is created, the code in static main(String[] args) starts running in the main thread.
 
 <br/>
-引用&参考：https://www.overops.com/blog/jvm-architecture-101-get-to-know-your-virtual-machine/
+## Frame stack (Stack/Stackframe) and frame (Frames):
 
+Each Java thread has a frame stack for method calls and returns. The frame stack is equivalent to the frame container and is used to control method calls and returns. The JVM will create a frame for the method, and when the method `return`, the corresponding method frame will be destroyed.
+
+![JVM structure](Chapter 1 img/JVM structure.png)
+
+<br/>
+## The structure of Frames (later explained in detail):
+
+Frames, also known as method frames, are used to process the content in each method. The frame consists of two main parts: local variable table, operation stack
+
+<br/>
+Quote & Reference: https://www.overops.com/blog/jvm-architecture-101-get-to-know-your-virtual-machine/
