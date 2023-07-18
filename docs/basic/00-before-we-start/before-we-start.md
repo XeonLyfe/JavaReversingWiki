@@ -1,83 +1,80 @@
-# 第〇章--在开始学习java逆向工程前需要知道什么？
+# Chapter 0--What do you need to know before starting to learn java reverse engineering?
 
-## 术语：
+## the term:
 
-### 1.限定名称(Qualified name)：
+### 1. Qualified name:
 
-用``.``分隔包名。例如`Class.forName(name)`的函数需要使用限定名称作为参数
+Separate package names with ``.``. Functions such as `Class.forName(name)` require qualified names as arguments
 
-举例：
+Example:
 
 - `java.lang.String`
 - `com.example.MyClass.InnerClass`
 
-注：只写最后一个类的名字，就是非限定名称。例如
+Note: Only write the name of the last class, which is an unqualified name. For example
 
 ```java
 import java.net.URL
-URL a = new URL("www.baidu.com")//这里URL就是非限定名称，所以需要import
-java.net.URL b = new java.net.URL("www.baidu.com")//和上面作用相同，但不需要import
+URL a = new URL("www.baidu.com")//The URL here is an unqualified name, so it needs to be imported
+java.net.URL b = new java.net.URL("www.baidu.com")//Same as above, but no need to import
 ```
 
 <br/>
-### 2.内部名称(Internal name)：
+### 2. Internal name:
 
-用`/`分隔包名。在`$`后接内部类名。内部名称是在`.class`类文件内部的类的名称
+Separate package names with `/`. The `$` is followed by the inner class name. The internal name is the name of the class inside the `.class` class file
 
-例如：
+For example:
 
 - `com/example/MyClass$InnerClass`
 
 <br/>
-### 3.原语（Primitives）：
+### 3. Primitives:
 
-使用单个字符来表示原语（原语即不可再分的类型）
+Use a single character to represent primitives (primitives are types that cannot be subdivided)
 
-| 原语      | JVM中的描述 |
+| Primitives | Description in JVM |
 | --------- | ----------- |
-| `long`    | `J`         |
-| `int`     | `I`         |
-| `short`   | `S`         |
-| `byte`    | `B`         |
-| `boolean` | `Z`         |
-| `float`   | `F`         |
-| `double`  | `D`         |
-| `void`    | `V`         |
+| `long` | `J` |
+| `int` | `I` |
+| `short` | `S` |
+| `byte` | `B` |
+| `boolean` | `Z` |
+| `float` | `F` |
+| `double` | `D` |
+| `void` | `V` |
 
 <br/>
-### 4.描述符（Descriptor):
+### 4. Descriptor (Descriptor):
 
-描述符被用来描述字段和方法类型。几乎和JVM内部类型相同，只是类名被`L`与`;`包裹。
+Descriptors are used to describe field and method types. Almost the same as the JVM internal type, but the class name is wrapped with `L` and `;`.
 
-例如：
+For example:
 
 - `Ljava/lang/String;`
-- `I` *(原语同上保持不变)*
+- `I` * (primitive same as above)*
 
-方法构造器格式举例：
+Example method constructor format:
 
 - `double method(int i, String s)` = `(ILjava/lang/String;)D`
 - `void method()` = `()V`
 
-每一层数组被`[`前缀标记：
+Each level of array is marked with `[` prefix:
 
 - `int[]` = `[I`
 
 - `String[][]` = `[[Ljava/lang/String;`
 
-**奇葩之处：**`double`和`long`类型的变量占用两个槽位（无论是在操作栈还是在局部变量表上的）
+**Wonderful thing: ** `double` and `long` type variables occupy two slots (whether on the operation stack or on the local variable table)
 
 <br/>
-### 5.方法(Method)：类(Class)中的函数成员
+### 5. Method (Method): a function member in a class (Class)
 
 <br/>
-### 6.字段(Field):类(Class)中的变量成员
+### 6. Field (Field): variable members in the class (Class)
 
 <br/>
-### 7.静态调试(static-analysis):指的是对Java字节码进行分析
+### 7. Static debugging (static-analysis): refers to the analysis of Java bytecode
 
 <br/>
-### 8.动态调试(dynamic-analysis):指得是利用调试器对正在运行中的JVM进行跟踪来进行分析
-
-
-
+### 8. Dynamic debugging (dynamic-analysis): refers to using the debugger to track the running JVM for analysis
